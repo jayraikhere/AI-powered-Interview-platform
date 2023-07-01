@@ -5,6 +5,7 @@ import Home from "./Components/Home"
 import Signup from "./Components/Signup"
 import Login from "./Components/Login"
 import Conversation from "./Components/Conversation"
+import Editor from "./Components/Editor"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path="/login" exact element={<Login />} />
             <Route path="/signup" exact element={<Signup />} />
             <Route path="/conversation" exact element={<Conversation />} />
+            <Route path="/editor" exact element={<Editor /> } />
             {/* <Route path="/forgotpassword" exact element = {<ForgotPassword />} />
             <Route path="/user/:userId" exact element = {<Profile />} />
             <Route path="/user/:userId/edit" exact element = {<EditProfile />} />
