@@ -11,10 +11,11 @@ import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
+import { Intro } from '../Api';
 
 function Conversation(props) {
 
-    const [mic, setmic] = useState(false)
+    const [mic, setmic] = useState(null)
     const [allowCoding, setallowCoding] = useState(false)
     const [aiText, setaiText] = useState(null)
     const [utterance, setUtterance] = useState(null);
@@ -28,7 +29,7 @@ function Conversation(props) {
 
     useEffect(() => {
         setuserText(transcript);
-        // console.log(userText);
+        console.log(userText);
       }, [transcript]);
 
     useEffect(() => {
@@ -38,10 +39,10 @@ function Conversation(props) {
               }, });
         console.log("Now listening...");
     }
-        else{
+        else if(mic!==null){
           SpeechRecognition.stopListening();
           console.log("Stopped Listening");
-          
+          Intro(userText).then(console.log("success Intro")).catch((e)=>console.log(e));
         };
       }, [mic]);
 
