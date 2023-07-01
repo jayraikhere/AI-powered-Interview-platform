@@ -104,7 +104,7 @@ export default function Login() {
         </Box>
       </Box>
       {redirect && (
-        <Navigate to={`/user/${JSON.parse(localStorage.getItem('profile'))?._id}`} replace={true} />
+        <Navigate to={`/conversation`} replace={true} />
       )}
     </Container>
   );

@@ -7,9 +7,9 @@ import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/theme-twilight';
 import 'ace-builds/src-noconflict/ext-language_tools'; // Import the language tools for code completion
 import styles from './CodeEditor.module.css';
+import { checkCode } from '../Api/index';
 
 const CodeEditor = ({ problem }) => {
-
   const getInitialCode = (language) => {
     switch (language) {
       case 'c_cpp':
@@ -36,16 +36,18 @@ const CodeEditor = ({ problem }) => {
   const [code, setCode] = useState(getInitialCode(language));
 
   const handleCodeChange = (newCode) => {
+    console.log(newCode)
     setCode(newCode);
   };
 
   const submitCode = async () => {
     try {
-      const response = await axios.post('/checkCode', {
-        problem: problem,
-        code: code,
-      });
-      console.log(response.data); // Handle the response from the backend
+      checkCode({
+        question: problem,
+        approach: code,
+      }).then(
+        // setallowCoding(true)
+      ).catch((e)=>console.log(e));
     } catch (error) {
       console.error(error);
     }
@@ -61,7 +63,7 @@ const CodeEditor = ({ problem }) => {
 
 
   return (
-    <div>
+    <div >
       <div className="language-select">
         <select value={language} onChange={handleLanguageChange}>
           <option value="c_cpp">C++</option>

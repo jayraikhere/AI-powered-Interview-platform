@@ -12,6 +12,7 @@ import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
 import { Intro } from '../Api';
+import { Link } from 'react-router-dom';
 
 function Conversation(props) {
 
@@ -20,6 +21,12 @@ function Conversation(props) {
     const [aiText, setaiText] = useState(null)
     const [utterance, setUtterance] = useState(null);
     const [userText, setuserText] = useState(null);
+
+    const [user, setUser] = useState(null)
+    console.log(user);
+    useEffect(() => {
+      setUser(JSON.parse(localStorage.getItem('profile'))?.name)
+    }, [user])
 
     const { transcript, listening, resetTranscript } = useSpeechRecognition();
     const handleAudioSubmit = (e) => {
@@ -42,7 +49,9 @@ function Conversation(props) {
         else if(mic!==null){
           SpeechRecognition.stopListening();
           console.log("Stopped Listening");
-          Intro(userText).then(console.log("success Intro")).catch((e)=>console.log(e));
+          Intro(userText).then(
+            setallowCoding(true)
+          ).catch((e)=>console.log(e));
         };
       }, [mic]);
 
@@ -72,9 +81,7 @@ function Conversation(props) {
     const handelMic = () => {
         setmic(!mic);
     }
-    const handelCoding = () => {
-        setallowCoding(true);
-    }
+   
 
     return (
         <>
@@ -110,13 +117,16 @@ function Conversation(props) {
 
                         <Grid item>
                             <User user={"ai"} />
-                            <Button onClick={handelCoding} variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
+                            <Link to="/editor">
+                            <Button  variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
                                 Proceed to Coding Part
                             </Button>
+                            </Link>
+                           
                             <Button variant="contained" onClick={setText}>play</Button>
                         </Grid>
                         <Grid item>
-                            <User user={"user"} />
+                            <User user={user} />
                             <Button onClick={handelMic} variant="contained" sx={{ margin: "40px" }}>
                                 {mic ? "Stop" : "Open Mic"}
                             </Button>

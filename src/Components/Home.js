@@ -40,9 +40,6 @@ const Home = () => {
               <Item>xs=2</Item>
             </Grid> */}
         </Grid>
-        <Link to="/allprofiles">
-          <Button variant="contained">All Profiles</Button>
-        </Link>
       </Box>
     </div>
   )

@@ -38,7 +38,7 @@ export const login = (formData) =>
         });
 
 export const Intro = (response) =>
-        API.post("/Intro", response)
+        API.post("/intro", {msg:response})
             .then((res) => {
                 const data = res.data;
                 return res.data;
@@ -47,3 +47,12 @@ export const Intro = (response) =>
                 return err.response.data;
             });
 
+ export const checkCode = (response) =>
+        API.post("/checkCode", response)
+            .then((res) => {
+                const data = res.data;
+                return res.data;
+            })
+            .catch((err) => {
+                return err.response.data;
+            });           
