@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import AceEditor from 'react-ace';
 import 'ace-builds/src-noconflict/mode-c_cpp';
 import 'ace-builds/src-noconflict/mode-java';
@@ -7,8 +8,25 @@ import 'ace-builds/src-noconflict/theme-twilight';
 import 'ace-builds/src-noconflict/ext-language_tools'; // Import the language tools for code completion
 import styles from './CodeEditor.module.css';
 
-const CodeEditor = () => {
-  
+const CodeEditor = ({problem}) => {
+  const [language, setLanguage] = useState('c_cpp');
+  const [code, setCode] = useState(getInitialCode(language));
+
+  const handleCodeChange = (newCode) => {
+    setCode(newCode);
+  };
+
+  const submitCode = async () => {
+    try {
+      const response = await axios.post('/checkCode', {
+        problem: problem,
+        code: code,
+      });
+      console.log(response.data); // Handle the response from the backend
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleLanguageChange = (event) => {
     const selectedLanguage = event.target.value;
@@ -38,16 +56,6 @@ const CodeEditor = () => {
   }
   };
   
-  const [language, setLanguage] = useState('c_cpp');
-  const [code, setCode] = useState(getInitialCode(language));
-
-  const handleCodeChange = (newCode) => {
-    setCode(newCode);
-  };
-
-  const submitCode = () => {
-    // Implement code submission logic here using axios
-  };
 
   return (
     <div>
