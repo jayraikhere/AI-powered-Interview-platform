@@ -44,7 +44,7 @@ function Navbar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        Streaming Platform
+        Coding Platform
       </Typography>
       <Divider />
       <List>
@@ -94,7 +94,7 @@ function Navbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { sm: 'block', textAlign: 'left' } }}
           >
-            Streaming Platform
+            Coding Platform
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {/* {navItems.map((item) => (

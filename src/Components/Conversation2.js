@@ -11,10 +11,15 @@ import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
-import { Approach} from '../Api/index';
-import { Link } from 'react-router-dom';
 
-function Conversation2(props) {
+
+import { Navigate, Link } from "react-router-dom";
+
+import { Approach} from '../Api/index';
+
+
+
+function Conversation2({ problem }) {
 
     const [mic, setmic] = useState(null)
     const [allowCoding, setallowCoding] = useState(false)
@@ -23,10 +28,12 @@ function Conversation2(props) {
     const [userText, setuserText] = useState(null);
     const [ques, setques] = useState(null);
     const [user, setUser] = useState(null);
+    const [count, setcount] = useState(0);
+    const [score, setscore] = useState(0);
     console.log(user);
     useEffect(() => {
         setUser(JSON.parse(localStorage.getItem('profile'))?.name)
-        setques(props?.ques);
+        setques(problem?.prob);
     }, [user])
 
     const { transcript, listening, resetTranscript } = useSpeechRecognition();
@@ -52,10 +59,15 @@ function Conversation2(props) {
         else if (mic !== null) {
             SpeechRecognition.stopListening();
             console.log("Stopped Listening");
+
             Approach({
                 question:props.ques,
-                approach:userText}).then(
-                setallowCoding(true)
+                approach:userText}).then((data) => {
+                setscore(data);
+                // setallowCoding(true);
+                setcount(count + 1);
+            }
+
             ).catch((e) => console.log(e));
         };
     }, [mic]);
@@ -80,9 +92,9 @@ function Conversation2(props) {
         const u = new SpeechSynthesisUtterance(aiText);
         setUtterance(u);
         synth.speak(utterance);
-        
+
         return () => {
-            
+
             synth.cancel();
             setaiText(null);
         };
@@ -122,42 +134,60 @@ function Conversation2(props) {
             </Box>
             <br /><br /><br /><br />
             <Grid sx={{ flexGrow: 1 }} container spacing={2}>
-                <Grid item xs={12} sx={{ padding: "20px", fontSize: "24px", background: "rgba(100,0,0,0.2)" }}>
+                <Grid item xs={12} sx={{ paddingTop: "20px", fontSize: "24px", background: "rgba(100,0,0,0.2)" }}>
                     {ques ? ques : ""}
+                </Grid>
+                <Grid item xs={12} sx={{ padding: "2px", fontSize: "15px", background: "rgba(100,0,0,0.2)" }}>
+
+
+
+                    <p>{problem.inp1[0]}
+                        {problem.inp1[1]}</p>
+
+                    <p>{problem.inp2[0]}
+                        {problem.inp2[1]}</p>
+
+                    <p>{problem.inp3[0]}
+                        {problem.inp3[1]}</p>
+
+
                 </Grid>
                 <Grid item xs={12}>
                     <Grid container justifyContent="center" spacing={1}>
 
                         <Grid item>
-                            <User user={"ai"} on={mic?false:true}/>
-                            <Link to="/editor">
+                            <User user={"ai"} on={mic ? false : true} />
+                            {/* <Link to="/editor">
                                 <Button variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
                                     Proceed to Coding Part
                                 </Button>
-                            </Link>
+                            </Link> */}
 
-                            <Button variant="contained" onClick={setText}>Start</Button>
+                            <Button variant="contained" onClick={setText} sx={{ margin: "20px" }}>Start</Button>
+                            <Link to="/endInterview"><Button variant="contained" color="error">
+                                Stop Interview
+                            </Button></Link>
                         </Grid>
                         <Grid item>
-                            <User user={user} on={mic}/>
-                            <Button onClick={handelMic} variant="contained" sx={{ margin: "40px" }}>
+                            <User user={user} on={mic} />
+                            <Button onClick={handelMic} variant="contained" sx={{ margin: "20px" }}>
                                 {mic ? "Stop" : "Open Mic"}
                             </Button>
                         </Grid>
 
+
                     </Grid>
+
                 </Grid>
-                {/* <form onSubmit={handleAudioSubmit}>
-        <textarea name="text" rows={10} cols={50} value={transcript}></textarea>
-        <div className="btn-container">
-          <span onClick={resetTranscript} className="btn">
-            Clear Text
-          </span>
-          <button type="submit" className="btn">
-            Print Text
-          </button>
-        </div>
-      </form> */}
+
+                {score !== 0 && score < 5 && count === 2 ?
+                    <Navigate to={"/endInterview"} replace={true} /> : <></>
+                }
+                {score !== 0 && score >= 5 && count !== 0 ?
+                    <Navigate to={"/endInterview"} replace={true} /> : <></>
+                }
+
+
             </Grid>
         </>
     );

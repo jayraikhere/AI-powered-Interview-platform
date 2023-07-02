@@ -116,17 +116,20 @@ function Conversation(props) {
                     <Grid container justifyContent="center" spacing={1}>
 
                         <Grid item>
-                            <User user={"ai"} />
+                            <User user={"ai"} on={mic?false:true}/>
                             <Link to="/conversation2">
                             <Button  variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
                                 Proceed to DSA round
                             </Button>
                             </Link>
                            
-                            <Button variant="contained" onClick={setText}>play</Button>
+                            <Button variant="contained" onClick={setText}>Start</Button>
+                            <Link to="/endInterview"><Button variant="contained" color="error" sx={{ margin: "10px" }}>
+                                Stop Interview
+                            </Button></Link>
                         </Grid>
                         <Grid item>
-                            <User user={user} />
+                            <User user={user} on={mic}/>
                             <Button onClick={handelMic} variant="contained" sx={{ margin: "40px" }}>
                                 {mic ? "Stop" : "Open Mic"}
                             </Button>
