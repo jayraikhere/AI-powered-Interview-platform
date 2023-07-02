@@ -10,9 +10,20 @@ import Editor from "./Components/Editor"
 // import { fetchQuestion } from './Api/index';
 
 const problems = [
-  "Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. For example, 'ace' is a subsequence of 'abcde'. A common subsequence of two strings is a subsequence that is common to both strings.",
-  ' Write a program to check if a given number is prime.',
-  ' Write a program to calculate the factorial of a number.',
+  {prob : 'Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.',
+   inp1 : ['Input : text1 = "abcde", text2 = "ace" ', 'Output : 3' ],
+   inp2 : ['Input : text1 = "abc", text2 = "def" ', 'Output : 0'],
+   inp3 : ['Input : text1 = "abc", text2 = "abc" ', 'Output : 3']},
+   {prob : ' Write a program to check if a given number is prime or not .',
+   inp1 : ['Input :  ', 'Output : 3' ],
+   inp2 : ['Input : ', 'Output : 0'],
+   inp3 : ['Input :  ', 'Output : 3']},
+   {prob : ' Write a program to calculate the factorial of a number.',
+   inp1 : ['Input : ', 'Output : 3' ],
+   inp2 : ['Input :  ', 'Output : 0'],
+   inp3 : ['Input :  ', 'Output : 3']}
+  
+  
 ];
 const randomIndex = Math.floor(Math.random() * problems.length);
 const selectedProblem=problems[randomIndex];
@@ -41,7 +52,7 @@ function App() {
           <Route path="/login" exact element={<Login />} />
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/conversation" exact element={<Conversation />} />
-          <Route path="/conversation2" exact element={<Conversation2 ques={selectedProblem} />} />
+          <Route path="/conversation2" exact element={<Conversation2 ques={selectedProblem.prob} />} />
           <Route path="/editor" exact element={<Editor selectedProblem={selectedProblem} />} />
           {/* <Route path="/forgotpassword" exact element = {<ForgotPassword />} />
             <Route path="/user/:userId" exact element = {<Profile />} />
