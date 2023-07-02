@@ -67,7 +67,7 @@ const Editor = (props) => {
         <Problem problem={props.selectedProblem} />
       </div>
       
-      <div className="code-editor" style={{marginTop:"29px"}}>
+      <div className="code-editor" style={{marginTop:"60px"}}>
         <CodeEditor problem={props.selectedProblem} />
       </div>
     </div>
