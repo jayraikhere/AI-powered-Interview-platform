@@ -12,14 +12,14 @@ const Problem = ({ problem }) => {
   return (
     <div>
       {/* <div>Problem Statement</div> */}
-      <Grid sx={{ flexGrow: 1,paddingTop: "80px" }} container spacing={2} >
+      <Grid sx={{ flexGrow: 1,paddingTop: "80px"}} container spacing={2} >
       <Grid item xs={12} sx={{ paddingTop: "20px", fontSize: "35px",  }}>
           
           Problem Statement
         </Grid>
         <br/>
-        <Grid item xs={12} sx={{ paddingTop: "20px", fontSize: "25px", }}>
-        <br/><br/>
+        <Grid item xs={12} sx={{ paddingTop: "20px", fontSize: "25px", }} >
+        
           {ques ? ques : ""}
         </Grid>
         <Grid item xs={12} sx={{ padding: "2px", fontSize: "18px",  }}>

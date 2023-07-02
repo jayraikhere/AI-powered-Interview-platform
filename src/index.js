@@ -7,7 +7,9 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <div className="App" style={{backgroundImage: "url(background.jpg)",backgroundRepeat: "no-repeat",backgroundAttachment: "fixed", height:"110vh"}}>
     <App />
+    </div>
   </React.StrictMode>
 );
 

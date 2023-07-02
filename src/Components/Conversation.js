@@ -18,7 +18,7 @@ function Conversation(props) {
 
     const [mic, setmic] = useState(null)
     const [allowCoding, setallowCoding] = useState(false)
-    const [aiText, setaiText] = useState(null)
+    const [aiText, setaiText] = useState("Hi, I am AI, Let's start the interview with your introduction and make sure to highlight your key technical strengths")
     const [utterance, setUtterance] = useState(null);
     const [userText, setuserText] = useState(null);
 
