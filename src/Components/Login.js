@@ -104,7 +104,7 @@ export default function Login() {
         </Box>
       </Box>
       {redirect && (
-        <Navigate to={`/conversation`} replace={true} />
+        <Navigate to={`/`} replace={true} />
       )}
     </Container>
   );

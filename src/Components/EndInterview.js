@@ -3,13 +3,17 @@ import { getScore } from '../Api/index'
 
 const EndInterview = () => {
     const [name,setName]=useState();
-    const [score,setScore]=useState(0);
+    const [i_score,setIScore]=useState(0);
+    const [a_score,setAScore]=useState(0);
+    const [c_score,setCScore]=useState(0);
     useEffect(() => {
         getScore().then(
             (data)=>{
                 console.log(data);
                 setName(data.name);
-                setScore(data.score);
+                setIScore(data.intro_score);
+                setAScore(data.approach_score);
+                setCScore(data.coding_score);
             }
         ).catch((e) => console.log(e));
     }, );
@@ -25,7 +29,9 @@ const EndInterview = () => {
                 justifyContent: "center",
                 fontSize:"45px"
             }}>
-                <p>Thank you for giving the interview <b style={{color:"green"}}>{name}</b>, Your performance score is <b style={{color:"blue"}}>{score}</b>/100<br/>You can close the tab.</p>
+                <p>Thank you for giving the interview <b style={{color:"green"}}>{name}</b>,<br/> Your Intro score is <b style={{color:"blue"}}>{i_score}/20</b><br/>Your Coding score is <b style={{color:"blue"}}>{a_score+c_score}/100
+                
+                </b><br/>You can close the tab.</p>
             </div>
         </div>
     )
