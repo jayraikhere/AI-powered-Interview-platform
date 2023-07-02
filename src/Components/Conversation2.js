@@ -11,8 +11,13 @@ import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
-import { Approach } from '../Api';
+
+
 import { Navigate, Link } from "react-router-dom";
+
+import { Approach} from '../Api/index';
+
+
 
 function Conversation2({ problem }) {
 
@@ -54,12 +59,15 @@ function Conversation2({ problem }) {
         else if (mic !== null) {
             SpeechRecognition.stopListening();
             console.log("Stopped Listening");
-            // setcount(count + 1);
-            Approach(userText).then((data) => {
+
+            Approach({
+                question:props.ques,
+                approach:userText}).then((data) => {
                 setscore(data);
                 // setallowCoding(true);
                 setcount(count + 1);
             }
+
             ).catch((e) => console.log(e));
         };
     }, [mic]);

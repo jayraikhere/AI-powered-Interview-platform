@@ -48,7 +48,7 @@ export const Intro = (response) =>
             });
 
 export const Approach = (response) =>
-        API.post("/checkApproach", {msg:response})
+        API.post("/checkApproach", response)
             .then((res) => {
                 const data = res.data;
                 return res.data;
