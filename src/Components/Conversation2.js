@@ -11,49 +11,52 @@ import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
-import { Intro } from '../Api';
+import { Approach} from '../Api';
 import { Link } from 'react-router-dom';
 
-function Conversation(props) {
+function Conversation2(props) {
 
     const [mic, setmic] = useState(null)
     const [allowCoding, setallowCoding] = useState(false)
-    const [aiText, setaiText] = useState(null)
+    const [aiText, setaiText] = useState("There is given problem statement, you need to explain your approach for this")
     const [utterance, setUtterance] = useState(null);
     const [userText, setuserText] = useState(null);
-
-    const [user, setUser] = useState(null)
+    const [ques, setques] = useState(null);
+    const [user, setUser] = useState(null);
     console.log(user);
     useEffect(() => {
-      setUser(JSON.parse(localStorage.getItem('profile'))?.name)
+        setUser(JSON.parse(localStorage.getItem('profile'))?.name)
+        setques(props?.ques);
     }, [user])
 
     const { transcript, listening, resetTranscript } = useSpeechRecognition();
     // const handleAudioSubmit = (e) => {
-    //   e.preventDefault();
-    //   alert(e.target.text.value);
+    //     e.preventDefault();
+    //     alert(e.target.text.value);
     // };
 
     useEffect(() => {
         setuserText(transcript);
         console.log(userText);
-      }, [transcript]);
+    }, [transcript]);
 
     useEffect(() => {
-        if(mic){
-            SpeechRecognition.startListening({ continuous: true, onresult : (event) => {
-                // console.log(event.results[event.results.length -1][0].transcript);
-              }, });
-        console.log("Now listening...");
-    }
-        else if(mic!==null){
-          SpeechRecognition.stopListening();
-          console.log("Stopped Listening");
-          Intro(userText).then(
-            setallowCoding(true)
-          ).catch((e)=>console.log(e));
+        if (mic) {
+            SpeechRecognition.startListening({
+                continuous: true, onresult: (event) => {
+                    // console.log(event.results[event.results.length -1][0].transcript);
+                },
+            });
+            console.log("Now listening...");
+        }
+        else if (mic !== null) {
+            SpeechRecognition.stopListening();
+            console.log("Stopped Listening");
+            Approach(userText).then(
+                setallowCoding(true)
+            ).catch((e) => console.log(e));
         };
-      }, [mic]);
+    }, [mic]);
 
     useEffect(() => {
         // const synth = window.speechSynthesis;
@@ -66,22 +69,27 @@ function Conversation(props) {
     }, [aiText]);
 
     const setText = () => {
-        setaiText("MY NAME IS ai");
+        setaiText("There is given problem statement, you need to explain your approach for this");
         handlePlay();
     }
 
     const handlePlay = () => {
         const synth = window.speechSynthesis;
+        const u = new SpeechSynthesisUtterance(aiText);
+        setUtterance(u);
         synth.speak(utterance);
+        
         return () => {
+            
             synth.cancel();
+            setaiText(null);
         };
     };
 
     const handelMic = () => {
         setmic(!mic);
     }
-   
+
 
     return (
         <>
@@ -112,21 +120,24 @@ function Conversation(props) {
             </Box>
             <br /><br /><br /><br />
             <Grid sx={{ flexGrow: 1 }} container spacing={2}>
+                <Grid item xs={12} sx={{ padding: "20px", fontSize: "24px", background: "rgba(100,0,0,0.2)" }}>
+                    {ques ? ques : ""}
+                </Grid>
                 <Grid item xs={12}>
                     <Grid container justifyContent="center" spacing={1}>
 
                         <Grid item>
-                            <User user={"ai"} />
-                            <Link to="/conversation2">
-                            <Button  variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
-                                Proceed to DSA round
-                            </Button>
+                            <User user={"ai"} on={mic?false:true}/>
+                            <Link to="/editor">
+                                <Button variant={allowCoding ? "contained" : "disabled"} sx={{ margin: "40px" }}>
+                                    Proceed to Coding Part
+                                </Button>
                             </Link>
-                           
-                            <Button variant="contained" onClick={setText}>play</Button>
+
+                            <Button variant="contained" onClick={setText}>Start</Button>
                         </Grid>
                         <Grid item>
-                            <User user={user} />
+                            <User user={user} on={mic}/>
                             <Button onClick={handelMic} variant="contained" sx={{ margin: "40px" }}>
                                 {mic ? "Stop" : "Open Mic"}
                             </Button>
@@ -152,4 +163,4 @@ function Conversation(props) {
 
 
 
-export default Conversation;
+export default Conversation2;

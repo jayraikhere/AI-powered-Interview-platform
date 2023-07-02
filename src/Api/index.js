@@ -47,6 +47,16 @@ export const Intro = (response) =>
                 return err.response.data;
             });
 
+export const Approach = (response) =>
+        API.post("/checkApproach", {msg:response})
+            .then((res) => {
+                const data = res.data;
+                return res.data;
+            })
+            .catch((err) => {
+                return err.response.data;
+            });
+
  export const checkCode = (response) =>
         API.post("/checkCode", response)
             .then((res) => {
@@ -56,3 +66,13 @@ export const Intro = (response) =>
             .catch((err) => {
                 return err.response.data;
             });           
+
+//  export const fetchQuestion = () =>
+//         API.get("/fetchQuestion")
+//             .then((res) => {
+//                 const data = res.data;
+//                 return res.data;
+//             })
+//             .catch((err) => {
+//                 return err.response.data;
+//             });   
