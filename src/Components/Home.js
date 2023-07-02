@@ -21,19 +21,43 @@ const Home = () => {
               <Item>xs=2</Item>
             </Grid>
           ))} */}
-          <Grid item xs={4} sm={4} md={4}>
+          <Grid item xs={5} sm={5} md={5}>
             {/* <Item>xs=2</Item> */}
             <Container maxWidth="sm">
-              f
+            <div style={{
+            display: "flex",
+            flexDirection:"column",
+            alignItems: "center",
+            justifyContent: "center"
+        }}>
+            <div style={{
+                height: "70vh", width: "70vw", display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize:"45px"
+            }}>
+                Empower Your Interview<br /> Skills with our AI<br/>guidance
+            </div>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                fontSize:"24px"
+            }}>
+                Description
+            </div>
+        </div>
             </Container>
           </Grid>
           <Grid item xs={4} sm={4} md>
             <Box component="main" sx={{ p: 3 }}>
-              <Typography>
+              {/* <Typography>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique unde
                 fugit veniam eius, perspiciatis sunt? Corporis qui ducimus quibusdam,
                 aliquam dolore excepturi quae. Distinctio enim at eligendi perferendis in Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veritatis animi ex? Veritatis, quae magnam voluptatum non voluptate dolorem repellendus alias ea vitae. Molestias veniam vel possimus ullam similique ex maiores? Autem amet aliquid accusantium at nesciunt laboriosam exercitationem animi. Odit architecto ipsum earum veniam sint natus, asperiores itaque ipsa veritatis maxime molestias recusandae officiis quibusdam nam expedita quo impedit incidunt aut ex, tenetur ut! Officia, quidem.
-              </Typography>
+              </Typography> */}
+              <img src={process.env.PUBLIC_URL+"/coding.png"} style={{height:"50vh"}} />
+
             </Box>
           </Grid>
           {/* <Grid item xs={2} sm={4} md={4}>

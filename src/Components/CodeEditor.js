@@ -8,6 +8,7 @@ import 'ace-builds/src-noconflict/theme-twilight';
 import 'ace-builds/src-noconflict/ext-language_tools'; // Import the language tools for code completion
 import styles from './CodeEditor.module.css';
 import { checkCode } from '../Api/index';
+import { Button } from '@mui/material';
 
 const CodeEditor = ({ problem }) => {
   const getInitialCode = (language) => {
@@ -82,7 +83,13 @@ const CodeEditor = ({ problem }) => {
         enableBasicAutocompletion={true} // Enable basic code completion
         enableLiveAutocompletion={true} // Enable live code completion
       />
-      <button onClick={submitCode}>Submit Code</button>
+      {/* <button onClick={submitCode}>Submit Code</button> */}
+      <Button onClick={submitCode} variant="contained"sx={{margin:"10px"}}>
+      Submit Code
+                </Button>
+      <Button variant="contained" color="error" sx={{margin:"10px"}}>
+                        Stop Interview
+                </Button>
     </div>
   );
 };
