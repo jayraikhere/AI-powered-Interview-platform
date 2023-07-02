@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+<p align="center">
+  <img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/a5362d13409e17436135e35adf845a33b769233b/public/coding.png" height="200px" width="250px" style="margin: 2px"/>
+<h1 style="display: flex; align-items: center">  AI Powered Coding Interview Platform </h1>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Index
+- [Title of the Project](#Title-of-the-Project)
+- [Team Members](#Team-Members)
+- [Brief description of the project](#Brief-description-of-the-project)
+- [Main Features Implemented](#Main-Features-Implemented)
+- [Tech stack and concepts used](#Tech-stack-and-concepts-used)
+- [Thought behind the project](#Thought-behind-the-project)
+- [Further Improvements](#Further-Improvements)
+- [Hosted Link](#Hosted-Link)
+- [Instructions for local setup](#Instructions-for-local-setup)
 
-## Available Scripts
+## Title of the Project
+### `AI Powered Coding Interview Platform`
 
-In the project directory, you can run:
+## Team Members
 
-### `npm start`
+<p align="center">
+<a href="https://github.com/akshat45">
+	<img src="https://github.com/akshat45.png" width="60px">
+</a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<a href="https://github.com/jayraikhere">
+	<img src="https://github.com/jayraikhere.png" width="60px">
+</a>
+<a href="https://github.com/mohit0305/">
+	<img src="https://github.com/mohit0305.png" width="60px">
+</a>
+</p>
+<p align="center">
+		<a href="https://github.com/akshat45">Akshat Gupta</a> •
+		<a href="https://github.com/jayraikhere">Jay Raikhere</a> •
+     <a href="https://github.com/mohit0305/">Mohit Kourav</a> 
+</p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Brief description of the project
 
-### `npm test`
+Welcome to our AI-powered coding interview platform! This platform is designed to revolutionize the way coding interviews are conducted by leveraging artificial intelligence (AI) with Large Language Model (LLM) technology. Our system enables candidates to have interactive conversations with our AI, providing them with a realistic interview experience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  1. **Conversational Coding Problems:** Candidates can engage in a conversation with our AI system to discuss coding problems. The AI acts as an interviewer.
 
-### `npm run build`
+2. **Problem Statement:** The platform gives problem statement for candidates to solve. Each problem is carefully crafted to assess the candidate's coding skills and problem-solving abilities.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Approach Analysis:** Candidates are required to explain their approach to solving the given coding problems. Our AI evaluates their approach, providing valuable feedback.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. **Code Evaluation:** Once the candidate has explained their approach, they are prompted to write the actual code. The code is then evaluated using a Language Model (LLM) model powered by OpenAI, which analyzes the correctness, efficiency, and overall quality of the code.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5. **Candidate Performance Score:** The platform generates comprehensive performance score for each candidate. These reports include a detailed analysis of their coding skills and problem-solving abilities.
 
-### `npm run eject`
+## System Architecture
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The AI-powered coding interview platform consists of the following components:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Frontend:** The frontend interface provides a user-friendly environment for candidates to interact with the platform. It allows them to view and respond to coding problems, communicate with the AI system, and receive feedback.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Backend:** The backend handles the logic of the platform, including generating problem statements, analyzing candidate approaches, and evaluating code using the LLM model. It integrates with the frontend to facilitate seamless communication between the candidate and the AI system.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **LLM Model:** The Language Model (LLM) model is a powerful tool for evaluating the quality of code. It analyzes the code written by the candidate, checking for syntax errors, code structure, and adherence to best practices. The LLM model plays a crucial role in providing accurate and reliable code evaluations.
 
-## Learn More
+## Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run the AI-powered coding interview platform locally, follow these steps:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository: `git clone https://github.com/jayraikhere/mercor-hackathon.git`
+2. Install the necessary dependencies: `npm install`
+3. Start the backend server: `node index.js` from this repo https://github.com/jayraikhere/mercor-hackathon-backend.git
+4. Launch the frontend interface: `npm start`
+5. Access the platform in your web browser: `http://localhost:3000`
 
-### Code Splitting
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We welcome contributions from the open-source community to enhance and improve the AI-powered coding interview platform.
 
-### Analyzing the Bundle Size
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+We would like to express our gratitude to the following resources and libraries that have been instrumental in the development of this project:
 
-### Making a Progressive Web App
+- [OpenAI GPT-3](https://openai.com/)
+- [Node.js](https://nodejs.org/)
+- [React](https://reactjs.org/)
+- [Express](https://expressjs.com/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contact
 
-### Advanced Configuration
+If you have any questions, suggestions, or feedback, please feel free to reach out to our team:
+mohitkourav0305@gmail.com, akshatgup45@gmail.com, jayraykhere@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
