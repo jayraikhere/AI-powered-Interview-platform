@@ -7,12 +7,12 @@
 - [Title of the Project](#Title-of-the-Project)
 - [Team Members](#Team-Members)
 - [Brief description of the project](#Brief-description-of-the-project)
-- [Main Features Implemented](#Main-Features-Implemented)
 - [Tech stack and concepts used](#Tech-stack-and-concepts-used)
 - [Thought behind the project](#Thought-behind-the-project)
 - [Further Improvements](#Further-Improvements)
 - [Hosted Link](#Hosted-Link)
 - [Instructions for local setup](#Instructions-for-local-setup)
+- [Screen Shots](#Screen-Shots)
 
 ## Title of the Project
 ### `AI Powered Coding Interview Platform`
@@ -50,6 +50,13 @@ Welcome to our AI-powered coding interview platform! This platform is designed t
 4. **Code Evaluation:** Once the candidate has explained their approach, they are prompted to write the actual code. The code is then evaluated using a Language Model (LLM) model powered by OpenAI, which analyzes the correctness, efficiency, and overall quality of the code.
 
 5. **Candidate Performance Score:** The platform generates comprehensive performance score for each candidate. These reports include a detailed analysis of their coding skills and problem-solving abilities.
+
+## Screen Shots
+<img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/e5a1ab4aaaa20e0575d5a24b540a4908b1d3a229/public/Screenshot%20(558).png" height="400px" width="600px" style="margin: 2px"/>
+<img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/e5a1ab4aaaa20e0575d5a24b540a4908b1d3a229/public/Screenshot%20(559).png" height="400px" width="600px" style="margin: 2px"/>
+<img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/e5a1ab4aaaa20e0575d5a24b540a4908b1d3a229/public/Screenshot%20(560).png" height="400px" width="600px" style="margin: 2px"/>
+<img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/e5a1ab4aaaa20e0575d5a24b540a4908b1d3a229/public/Screenshot%20(561).png" height="400px" width="600px" style="margin: 2px"/>
+<img alt="Website Logo" src="https://github.com/jayraikhere/mercor-hackathon/blob/e5a1ab4aaaa20e0575d5a24b540a4908b1d3a229/public/Screenshot%20(554).png" height="400px" width="600px" style="margin: 2px"/>
 
 ## System Architecture
 
