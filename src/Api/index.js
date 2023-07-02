@@ -50,8 +50,8 @@ export const Intro = (response) =>
 export const Approach = (response) =>
         API.post("/checkApproach", response)
             .then((res) => {
-                const data = res.data;
-                return res.data;
+                console.log(res);
+                return res.data.reply;
             })
             .catch((err) => {
                 return err.response.data;
@@ -66,7 +66,14 @@ export const Approach = (response) =>
             .catch((err) => {
                 return err.response.data;
             });           
-
+ export const getScore = () =>
+        API.get("/getScore",)
+            .then((res) => {
+                return res.data;
+            })
+            .catch((err) => {
+                return err.response.data;
+            }); 
 //  export const fetchQuestion = () =>
 //         API.get("/fetchQuestion")
 //             .then((res) => {

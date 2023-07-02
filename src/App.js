@@ -11,18 +11,18 @@ import EndInterview from "./Components/EndInterview"
 // import { fetchQuestion } from './Api/index';
 
 const problems = [
-  {prob : 'Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.',
-   inp1 : ['Input : text1 = "abcde", text2 = "ace" ', 'Output : 3' ],
-   inp2 : ['Input : text1 = "abc", text2 = "def" ', 'Output : 0'],
-   inp3 : ['Input : text1 = "abc", text2 = "abc" ', 'Output : 3']},
-   {prob : ' Write a program to check if a given number is prime or not .',
-   inp1 : ['Input :  ', 'Output : 3' ],
-   inp2 : ['Input : ', 'Output : 0'],
-   inp3 : ['Input :  ', 'Output : 3']},
-   {prob : ' Write a program to calculate the factorial of a number.',
-   inp1 : ['Input : ', 'Output : 3' ],
-   inp2 : ['Input :  ', 'Output : 0'],
-   inp3 : ['Input :  ', 'Output : 3']}
+  {prob : 'Given an integer array nums, return the length of the longest strictly increasing subsequence.',
+   inp1 : ['Input : nums = {3, 10, 2, 1, 20}', 'Output : 3' ],
+   inp2 : ['Input : nums = {50, 3, 10, 7, 40, 80}', 'Output : 4'],
+   inp3 : ['Input : nums = {3, 2} ', 'Output : 1']},
+   {prob : 'Given an array, find the most frequent element in it.',
+   inp1 : ['Input : nums = {1, 3, 2, 1, 4, 1} ', 'Output : 1' ],
+   inp2 : ['Input : nums = {1,2,3,2}', 'Output : 2'],
+   inp3 : ['Input : nums = {2,3,2} ', 'Output : 2']},
+   {prob : ' Given an array, find the largest element in the given array.',
+   inp1 : ['Input : nums = {10, 20, 4} ', 'Output : 20' ],
+   inp2 : ['Input : nums = {20, 10, 20, 4, 100}', 'Output : 100'],
+   inp3 : ['Input : nums = {1,5}', 'Output : 5']}
 ];
 const randomIndex = Math.floor(Math.random() * problems.length);
 const selectedProblem=problems[randomIndex];
@@ -55,13 +55,6 @@ function App() {
           <Route path="/conversation2" exact element={<Conversation2 problem={selectedProblem} />} />
           <Route path="/editor" exact element={<Editor selectedProblem={selectedProblem} />} />
           <Route path="/endInterview" exact element={<EndInterview />} />
-          {/* <Route path="/forgotpassword" exact element = {<ForgotPassword />} />
-            <Route path="/user/:userId" exact element = {<Profile />} />
-            <Route path="/user/:userId/edit" exact element = {<EditProfile />} />
-            <Route path="/schedulemeet" exact element = {<ScheduleMeet />} />
-            <Route path="/allprofiles" exact element = {<AllProfiles />} />
-            <Route path="/changePassword" exact element = {<ChangePassword />} />
-            <Route path="/resetpassword/:token" exact element = {<ResetPassword />} /> */}
         </Routes>
       </div>
       {/* </Suspense> */}

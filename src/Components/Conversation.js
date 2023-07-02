@@ -66,7 +66,7 @@ function Conversation(props) {
     }, [aiText]);
 
     const setText = () => {
-        setaiText("MY NAME IS ai");
+        setaiText("Hi, I am AI, Let's start the interview with your introduction and make sure to highlight your key technical strengths");
         handlePlay();
     }
 

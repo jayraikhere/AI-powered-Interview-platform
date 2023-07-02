@@ -9,6 +9,7 @@ import 'ace-builds/src-noconflict/ext-language_tools'; // Import the language to
 import styles from './CodeEditor.module.css';
 import { checkCode } from '../Api/index';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const CodeEditor = ({ problem }) => {
   const getInitialCode = (language) => {
@@ -44,7 +45,7 @@ const CodeEditor = ({ problem }) => {
   const submitCode = async () => {
     try {
       checkCode({
-        question: problem,
+        question: problem.prob,
         approach: code,
       }).then(
         // setallowCoding(true)
@@ -84,12 +85,13 @@ const CodeEditor = ({ problem }) => {
         enableLiveAutocompletion={true} // Enable live code completion
       />
       {/* <button onClick={submitCode}>Submit Code</button> */}
-      <Button onClick={submitCode} variant="contained"sx={{margin:"10px"}}>
+     
+                <Link to="/endInterview"> <Button onClick={submitCode} variant="contained"sx={{margin:"10px"}}>
       Submit Code
                 </Button>
       <Button variant="contained" color="error" sx={{margin:"10px"}}>
                         Stop Interview
-                </Button>
+                </Button></Link>
     </div>
   );
 };

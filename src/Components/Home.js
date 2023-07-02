@@ -31,21 +31,24 @@ const Home = () => {
             justifyContent: "center"
         }}>
             <div style={{
-                height: "70vh", width: "70vw", display: "flex",
+                height: "50vh", width: "50vw", display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize:"45px"
+                fontSize:"45px",
+                color:"red"
             }}>
                 Empower Your Interview<br /> Skills with our AI<br/>guidance
             </div>
             <div style={{
-                display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize:"24px"
             }}>
-                Description
+                The <b style={{color:"green"}}>First Ever AI Powered Coding Interview Platform</b> which will enable companies to hire and students to work on their coding interview skills 
             </div>
+            <Link style={{padding:"40px"}} to="/conversation"><Button variant="contained"  >
+                                Start Interview
+                            </Button></Link>
         </div>
             </Container>
           </Grid>

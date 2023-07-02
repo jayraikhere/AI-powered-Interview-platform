@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getScore } from '../Api/index'
 
 const EndInterview = () => {
+    const [name,setName]=useState();
+    const [score,setScore]=useState(0);
+    useEffect(() => {
+        getScore().then(
+            (data)=>{
+                console.log(data);
+                setName(data.name);
+                setScore(data.score);
+            }
+        ).catch((e) => console.log(e));
+    }, );
     return (
         <div style={{
             display: "flex",
@@ -13,7 +25,7 @@ const EndInterview = () => {
                 justifyContent: "center",
                 fontSize:"45px"
             }}>
-                Thank you for giving the interview<br/>You can close the tab.
+                <p>Thank you for giving the interview <b style={{color:"green"}}>{name}</b>, Your performance score is <b style={{color:"blue"}}>{score}</b>/100<br/>You can close the tab.</p>
             </div>
         </div>
     )

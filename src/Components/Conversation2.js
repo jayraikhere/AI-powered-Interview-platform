@@ -59,9 +59,9 @@ function Conversation2({ problem }) {
         else if (mic !== null) {
             SpeechRecognition.stopListening();
             console.log("Stopped Listening");
-
+           
             Approach({
-                question:props.ques,
+                question:problem.prob,
                 approach:userText}).then((data) => {
                 setscore(data);
                 // setallowCoding(true);
@@ -184,7 +184,7 @@ function Conversation2({ problem }) {
                     <Navigate to={"/endInterview"} replace={true} /> : <></>
                 }
                 {score !== 0 && score >= 5 && count !== 0 ?
-                    <Navigate to={"/endInterview"} replace={true} /> : <></>
+                    <Navigate to={"/editor"} replace={true} /> : <></>
                 }
 
 
