@@ -35,14 +35,14 @@ const Home = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 fontSize:"45px",
-                color:"red"
+                color:"#163b87"
             }}>
                 Empower Your Interview<br /> Skills with our AI<br/>guidance
             </div>
             <div style={{
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize:"24px"
+                fontSize:"18px"
             }}>
                 The <b style={{color:"green"}}>First Ever AI Powered Coding Interview Platform</b> which will enable companies to hire and students to work on their coding interview skills 
             </div>

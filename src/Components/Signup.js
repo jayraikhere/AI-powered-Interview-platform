@@ -1,8 +1,5 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
-// import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -10,6 +7,12 @@ import Container from "@mui/material/Container";
 import { signup } from "../Api/index";
 import { useState } from "react";
 import { Navigate, Link} from "react-router-dom";
+
+import AppBar from '@mui/material/AppBar';
+import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
 
 export default function Signup() {
 
@@ -53,6 +56,32 @@ export default function Signup() {
   }
 
   return (
+    <>
+    <Box sx={{ display: 'flex' }}>
+                <CssBaseline />
+                <AppBar component="nav">
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            sx={{ mr: 2, display: { sm: 'none' } }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1, display: { sm: 'block', textAlign: 'left' } }}
+                        >
+                            Coding Platform
+                        </Typography>
+                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+
+                        </Box>
+                    </Toolbar>
+                </AppBar>
+            </Box>
     <Container component="main" maxWidth="xs">
       <Box
         sx={{
@@ -62,6 +91,7 @@ export default function Signup() {
           alignItems: "center",
         }}
       >
+        <br/>
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
@@ -121,6 +151,6 @@ export default function Signup() {
       {redirect && (
         <Navigate to="/login" replace={true} />
       )}
-    </Container>
+    </Container></>
   );
 }

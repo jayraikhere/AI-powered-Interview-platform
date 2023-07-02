@@ -1,11 +1,16 @@
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { useState, useEffect } from 'react';
+import { Grid } from '@mui/material';
 import { login } from "../Api/index";
-import { useState } from "react";
 import { Navigate, Link} from "react-router-dom";
 
 export default function Login() {
@@ -45,7 +50,32 @@ export default function Login() {
     else if(e.target.name==="password") setpass(false);
   }
 
-  return (
+  return (<>
+    <Box sx={{ display: 'flex' }}>
+                <CssBaseline />
+                <AppBar component="nav">
+                    <Toolbar>
+                        <IconButton
+                            color="inherit"
+                            aria-label="open drawer"
+                            edge="start"
+                            sx={{ mr: 2, display: { sm: 'none' } }}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ flexGrow: 1, display: { sm: 'block', textAlign: 'left' } }}
+                        >
+                            Coding Platform
+                        </Typography>
+                        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+
+                        </Box>
+                    </Toolbar>
+                </AppBar>
+            </Box>
     <Container component="main" maxWidth="xs">
       <Box
         sx={{  
@@ -55,6 +85,7 @@ export default function Login() {
           alignItems: "center",
         }}
       >
+        <br />
         <Typography component="h1" variant="h5">
           Login
         </Typography>
@@ -106,6 +137,6 @@ export default function Login() {
       {redirect && (
         <Navigate to={`/`} replace={true} />
       )}
-    </Container>
+    </Container></>
   );
 }

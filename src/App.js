@@ -45,7 +45,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <Suspense fallback={<div className='App'><Loader margin /></div>}> */}
-      <div className="App" style={{backgroundImage: "url(background.jpg)", height:"100vh"}}>
+      <div className="App" style={{backgroundImage: "url(background.jpg)",backgroundRepeat: "no-repeat",backgroundAttachment: "fixed", height:"100vh"}}>
       {/* <img src={process.env.PUBLIC_URL+"/background.png"} style={{height:"100vh", visibility:"50%"}} /> */}
         <Routes>
           <Route path="/" exact element={<Home />} />
