@@ -11,7 +11,7 @@ import { useState, useEffect } from 'react';
 import { Grid } from '@mui/material';
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import User from "./User"
-import { Approach} from '../Api';
+import { Approach} from '../Api/index';
 import { Link } from 'react-router-dom';
 
 function Conversation2(props) {
@@ -52,7 +52,9 @@ function Conversation2(props) {
         else if (mic !== null) {
             SpeechRecognition.stopListening();
             console.log("Stopped Listening");
-            Approach(userText).then(
+            Approach({
+                question:props.ques,
+                approach:userText}).then(
                 setallowCoding(true)
             ).catch((e) => console.log(e));
         };
